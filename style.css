@@ -167,6 +167,58 @@ button[type="submit"]:hover {
 .likert-option input[type="radio"]:checked::before {
   color: white;
 }
+/* Horizontal row for Likert */
+.likert-scale {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.likert-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0;
+}
+
+.likert-option input[type="radio"] {
+  appearance: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  background-color: #d9e8fa;
+  border: none;
+  position: relative;
+  cursor: pointer;
+}
+
+.likert-option input[type="radio"]::before {
+  content: attr(value);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #000;
+  text-align: center;
+}
+
+.likert-option input[type="radio"]:checked {
+  background-color: #0052cc;
+}
+
+.likert-option input[type="radio"]:checked::before {
+  color: white;
+}
+/* Likelihood question spacing fix */
+.likelihood-label {
+  line-height: 1.2;     /* Controls spacing between 1–5 options */
+  margin-bottom: 10px;  /* Keeps a bit of space before the answer buttons */
+  white-space: pre-line; /* Makes \n line breaks work */
+}
 
 
 
