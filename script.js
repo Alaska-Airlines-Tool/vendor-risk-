@@ -284,7 +284,7 @@ function createSelectGroup(name, index) {
       riskPercent: riskPercent.toFixed(1),
       criticality
     };
-
+console.log("Sending payload:", payload);
     fetch("https://script.google.com/macros/s/AKfycbwqbqHjKXuYmVB2YlujcBIF8gz2_uGbTv0ngrGnOxK_ISdhCBHqeJiqe-8-2-aUlG6u/exec", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
