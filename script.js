@@ -285,7 +285,7 @@ function createSelectGroup(name, index) {
       criticality
     };
 console.log("Sending payload:", payload);
-fetch("https://script.google.com/macros/s/NEW_DEPLOYMENT_ID_HERE/exec", {
+fetch("https://script.google.com/macros/s/AKfycbwqbqHjKXuYmVB2YlujcBIF8gz2_uGbTv0ngrGnOxK_ISdhCBHqeJiqe-8-2-aUlG6u/exec", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify(payload)
