@@ -5,16 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Vendor Risk Assessment</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
   <script src="script.js" defer></script>
 </head>
 <body>
   <div class="container">
     <h1>Vendor Risk Assessment</h1>
 
-    <form id="risk-form">
+   <form
+  id="risk-form"
+  action="https://formspree.io/f/xldbyjnb"
+  method="POST"
+>
+
       <div class="form-group">
         <label for="function-select">Vendor Function:</label>
-        <select id="function-select" name="function-select" required>
+       <select id="function-select" name="function-category" required>
           <option value="">Select Function</option>
           <option value="Flight Operations">Flight Operations</option>
           <option value="Aircraft Maintenance & Engineering">Aircraft Maintenance & Engineering</option>

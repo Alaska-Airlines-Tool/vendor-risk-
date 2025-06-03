@@ -1,9 +1,9 @@
-/* General Reset & Base */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #d9e7f8;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #a2d4ff, #ffffff);
   margin: 0;
   padding: 0;
+  font-size: 19px;
 }
 
 .container {
@@ -19,6 +19,7 @@ h1 {
   text-align: center;
   color: #003366;
   margin-bottom: 30px;
+  font-size: 34px;
 }
 
 h2 {
@@ -26,35 +27,59 @@ h2 {
   border-bottom: px solid #eeeeee;
   padding-bottom: 5px;
   margin-top: 40px;
+  font-size: 24px;
 }
 
-/* Label Styling */
 label {
   font-weight: normal;
   display: block;
   margin-bottom: 8px;
-  font-size: 15px;
+  font-size: 17px;
 }
 
-label[for="function-select"] {
-  font-size: 16px;
-  font-weight: 500;
+label[for="function-select"],
+label[for="vendor-name"] {
+  font-weight: 700;
+  font-size: 17px;
+  margin-bottom: 6px;
+  display: block;
 }
 
-/* Text & Select Inputs */
-input[type="text"],
-select {
+input[type="text"] {
   width: 100%;
   padding: 8px 12px;
-  margin: 12px 0 24px 0;
+  margin: 4px 0 16px 0;
   border: 1px solid #dfecfd;
   border-radius: 6px;
-  font-size: 14px;
-  height: 38px;
+  font-size: 17px;
+  height: 44px;
   box-sizing: border-box;
 }
 
-/* Section Layout */
+select#function-select {
+  width: 100%;
+  padding: 12px 16px;
+  margin: 8px 0 32px 0;
+  border: none;
+  border-radius: 12px;
+  font-size: 17px;
+  height: 48px;
+  box-sizing: border-box;
+  background: linear-gradient(to bottom, #e6f2ff, #ffffff);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg fill='gray' height='16' viewBox='0 0 24 24' width='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 16px;
+}
+
+.question-box label::first-letter {
+  font-weight: bold;
+}
+
 .question-headers {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -89,48 +114,49 @@ select {
   gap: 16px;
 }
 
-/* Button */
 button[type="submit"] {
-  background-color: #003366;
-  color: #fff;
-  padding: 12px 30px;
+  background: linear-gradient(to right, #1276e7, #68b2eb);
+  color: white;
+  padding: 14px 50px;
+  min-width: 180px;
   border: none;
-  border-radius: 8px;
+  border-radius: 30px;
   font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   margin-top: 30px;
 }
 
 button[type="submit"]:hover {
-  background-color: #0055a5;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
-/* Result */
 #result {
   background-color: #e6f0ff;
   padding: 20px;
   margin-top: 40px;
-  border-left: 5px solid #003366;
+  border-left: 5px solid #67a7e6;
   border-radius: 6px;
   font-size: 16px;
 }
-/* Likert scale container */
+
 .likert-scale {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   margin-top: 10px;
   justify-content: start;
 }
 
-/* Each option wrapper */
 .likert-option {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 0; /* hides bottom numbers */
+  font-size: 0;
 }
 
-/* Radio buttons styled as boxes */
 .likert-option input[type="radio"] {
   appearance: none;
   width: 40px;
@@ -144,54 +170,6 @@ button[type="submit"]:hover {
   transition: background-color 0.2s;
 }
 
-/* Number inside the box */
-.likert-option input[type="radio"]::before {
-  content: attr(value);
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  font-size: 16px;
-  color: #000;
-  text-align: center;
-  font-weight: 500;
-}
-
-/* When selected: blue background and white number */
-.likert-option input[type="radio"]:checked {
-  background-color: #0052cc;
-}
-
-.likert-option input[type="radio"]:checked::before {
-  color: white;
-}
-/* Horizontal row for Likert */
-.likert-scale {
-  display: flex;
-  gap: 12px;
-  margin-top: 10px;
-}
-
-.likert-option {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 0;
-}
-
-.likert-option input[type="radio"] {
-  appearance: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 6px;
-  background-color: #d9e8fa;
-  border: none;
-  position: relative;
-  cursor: pointer;
-}
-
 .likert-option input[type="radio"]::before {
   content: attr(value);
   position: absolute;
@@ -200,7 +178,7 @@ button[type="submit"]:hover {
   width: 40px;
   height: 40px;
   line-height: 40px;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 500;
   color: #000;
   text-align: center;
@@ -213,16 +191,14 @@ button[type="submit"]:hover {
 .likert-option input[type="radio"]:checked::before {
   color: white;
 }
-/* Likelihood question spacing fix */
+
 .likelihood-label {
-  line-height: 1.2;     /* Controls spacing between 1–5 options */
-  margin-bottom: 10px;  /* Keeps a bit of space before the answer buttons */
-  white-space: pre-line; /* Makes \n line breaks work */
+  line-height: 1.2;
+  margin-bottom: 10px;
+  white-space: pre-line;
+  font-size: 17px;
 }
 
-
-
-/* Mobile Responsive Design */
 @media (max-width: 600px) {
   .question-row {
     flex-direction: column;
@@ -238,12 +214,12 @@ button[type="submit"]:hover {
   }
 
   h1 {
-    font-size: 22px;
+    font-size: 26px;
     text-align: left;
   }
 
   h2 {
-    font-size: 18px;
+    font-size: 20px;
     margin-top: 30px;
   }
 

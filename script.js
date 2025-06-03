@@ -258,12 +258,13 @@ function createSelectGroup(name, index) {
       totalLikelihoodScore += likelihoodAvg * 5 * weights[i];
     });
 
-    const riskScore = totalImpactScore * totalLikelihoodScore;
-    const riskPercent = (riskScore / 25) * 100;
+   const riskScore = (totalImpactScore * 0.6) + (totalLikelihoodScore * 0.4);
+const riskPercent = (riskScore / 5) * 100;
 
-    let criticality = "🟢 Low Risk";
-    if (riskPercent >= 60) criticality = "🔴 Critical";
-    else if (riskPercent >= 40) criticality = "🟠 Semi-Critical";
+let criticality = "🟢 Low Risk";
+if (riskPercent >= 75) criticality = "🔴 Critical";
+else if (riskPercent >= 45) criticality = "🟠 Semi-Critical";
+
 
     const vendorName = document.getElementById("vendor-name").value;
     document.getElementById("result").innerHTML = `
@@ -285,15 +286,21 @@ function createSelectGroup(name, index) {
       criticality
     };
 console.log("Sending payload:", payload);
-fetch("https://script.google.com/macros/s/AKfycbwqbqHjKXuYmVB2YlujcBIF8gz2_uGbTv0ngrGnOxK_ISdhCBHqeJiqe-8-2-aUlG6u/exec", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(payload)
-})
+const formData = new FormData();
+formData.append("Vendor Name", vendorName);
+formData.append("Function Category", selectedFunction);
+formData.append("Impact Score", totalImpactScore.toFixed(2));
+formData.append("Likelihood Score", totalLikelihoodScore.toFixed(2));
+formData.append("Risk Score", riskScore.toFixed(2));
+formData.append("Risk %", riskPercent.toFixed(1));
+formData.append("Vendor-Criticality", criticality);
 
-  .then(res => res.text())
-  .then(msg => console.log("Saved to Google Sheet:", msg))
-  .catch(err => console.error("Save failed:", err));
+fetch("https://formspree.io/f/mgvyerog", {
+  method: "POST",
+  body: formData
+})
+.then(() => console.log("Submitted to Formspree"))
+.catch(err => console.error("Submit error:", err));
 
   });
 });
