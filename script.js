@@ -5,14 +5,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("questions-container");
 
   const functionWeights = {
-    "Flight Operations": [0.4, 0.15, 0.3, 0.05, 0.05, 0.05],
-    "Aircraft Maintenance & Engineering": [0.6, 0.15, 0.05, 0.1, 0.05, 0.05],
-    "Ground Operations & Airport Services": [0.4, 0.15, 0.3, 0.05, 0.05, 0.05],
-    "IT & Technology": [0.3, 0.15, 0.05, 0.4, 0.05, 0.05],
-    "Customer Service & Guest Products": [0.4, 0.15, 0.15, 0.1, 0.1, 0.1],
-    "Procurement & Supply Chain": [0.4, 0.15, 0.15, 0.1, 0.1, 0.1],
-    "Corporate & Finance": [0.4, 0.15, 0.15, 0.1, 0.1, 0.1],
-    "Safety, Security, & Risk": [0.4, 0.15, 0.15, 0.1, 0.1, 0.1]
+    "Flight Operations": [0.4, 0.15, 0.25, 0.1, 0.05, 0.05],
+    "Aircraft Maintenance & Engineering": [0.4, 0.15, 0.25, 0.1, 0.05, 0.05],
+    "Ground Operations & Airport Services": [0.4, 0.15, 0.25, 0.1, 0.05, 0.05],
+    "IT & Technology": [0.4, 0.15, 0.25, 0.1, 0.05, 0.05],
+    "Customer Service & Guest Products": [0.4, 0.15, 0.25, 0.1, 0.05, 0.05],
+    "Procurement & Supply Chain": [0.4, 0.15, 0.25, 0.1, 0.05, 0.05],
+    "Corporate & Finance": [0.4, 0.15, 0.25, 0.1, 0.05, 0.05],
+    "Safety, Security, & Risk": []
   };
 
   const riskAreas = [
